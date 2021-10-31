@@ -2,6 +2,14 @@
 
 Practice
 
+# How to run
+
+```
+$ ./parser.rb webserver.log
+# or
+$ ruby parser.rb webserver.log
+```
+
 # Example output
 
 `$ ruby parser.rb webserver.log`
