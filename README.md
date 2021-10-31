@@ -43,3 +43,8 @@ $ ruby parser.rb webserver.log
 # Explanations
 
 - I've chose `File.each_line` to reduce memory usage
+
+
+# Coverage snapshot
+
+![coverage_snapshot](./Screenshot_2021-10-31_at_17.56.47.png)
