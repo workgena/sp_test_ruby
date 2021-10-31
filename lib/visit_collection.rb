@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
+require 'forwardable'
 require_relative './visit'
 
 class VisitCollection
+  extend Forwardable
+  def_delegators :@collection, :sort_by, :reverse
+
   def initialize
     @collection = []
   end
