@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'forwardable'
-require_relative './visit'
+require_relative './page'
 
-class VisitCollection
+class PageCollection
   extend Forwardable
   def_delegators :@collection, :sort_by, :reverse
 
@@ -11,12 +11,12 @@ class VisitCollection
     @collection = []
   end
 
-  def add_visit(url, ip_addr)
-    visit = find(url)
-    if visit
-      visit.add_ip_addr(ip_addr)
+  def upsert_page(url, ip_addr)
+    page = find(url)
+    if page
+      page.add_ip_addr(ip_addr)
     else
-      insert(url, ip_addr)
+      insert_page(url, ip_addr)
     end
 
     @collection
@@ -28,7 +28,7 @@ class VisitCollection
     @collection.find { |v| v.url == url }
   end
 
-  def insert(url, ip_addr)
-    @collection << Visit.new(url, ip_addr)
+  def insert_page(url, ip_addr)
+    @collection << Page.new(url, ip_addr)
   end
 end

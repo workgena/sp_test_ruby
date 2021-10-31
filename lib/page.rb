@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Visit
+class Page
   attr_reader :url,
               :ip_addresses,
               :views_count,
