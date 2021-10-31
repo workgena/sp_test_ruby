@@ -10,14 +10,14 @@ describe WebserverLogParser do
     described_class.new(file)
   end
 
-  it '.by_views_count' do
-    result = parser.by_views_count
+  it '.sort_by views_count' do
+    result = parser.sort_by(:views_count)
 
     expect(result.map(&:url)).to eq(['/contact', '/help_page/1', '/home'])
   end
 
-  it '.by_unique_views_count' do
-    result = parser.by_unique_views_count
+  it '.sort_by views_count_unique' do
+    result = parser.sort_by(:views_count_unique)
 
     expect(result.map(&:url)).to eq(['/help_page/1', '/home', '/contact'])
   end

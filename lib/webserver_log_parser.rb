@@ -16,15 +16,9 @@ class WebserverLogParser
     end
   end
 
-  def by_views_count
+  def sort_by(column = :views_count)
     @collection
-      .sort_by(&:views_count)
-      .reverse
-  end
-
-  def by_unique_views_count
-    @collection
-      .sort_by(&:views_count_unique)
+      .sort_by(&column)
       .reverse
   end
 end

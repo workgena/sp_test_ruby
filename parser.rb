@@ -10,9 +10,9 @@ file = File.open(ARGV[0], 'r')
 parser = WebserverLogParser.new(file)
 
 puts '> list of webpages with most page views ordered from most pages views to less page views'
-Formatter::CliByViews.new(parser.by_views_count).print
+Formatter::CliByViews.new(parser.sort_by(:views_count)).print
 
 puts
 
 puts '> list of webpages with most unique page views also ordered'
-Formatter::CliByUniqueViews.new(parser.by_views_count).print
+Formatter::CliByUniqueViews.new(parser.sort_by(:views_count_unique)).print
