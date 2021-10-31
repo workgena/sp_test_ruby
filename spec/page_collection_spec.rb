@@ -7,7 +7,7 @@ describe PageCollection do
   subject { described_class.new }
 
   describe '.upsert_page' do
-    it 'adding new visit build Visit-model with counters equals to 1 (one)' do
+    it 'creates new Page-model with visits equal to 1(one)' do
       collection = subject.upsert_page('/home', '184.123.665.067')
 
       expect(collection[0]).to have_attributes(
@@ -18,7 +18,7 @@ describe PageCollection do
       )
     end
 
-    it 'adding existing URL visit with new IP-address' do
+    it 'updates existing Page by URL, increate visit counter' do
       subject.upsert_page('/home', '192.168.1.1')
       collection = subject.upsert_page('/home', '192.168.1.2')
 
@@ -32,7 +32,7 @@ describe PageCollection do
       )
     end
 
-    it 'adding existing URL visit with duplicated IP-address' do
+    it 'updates existing Page by URL, increate visit counter but not unique counter' do
       subject.upsert_page('/home', '192.168.1.1')
       collection = subject.upsert_page('/home', '192.168.1.1')
 

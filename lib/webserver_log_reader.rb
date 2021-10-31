@@ -2,7 +2,7 @@
 
 require_relative './page_collection'
 
-class WebserverLogParser
+class WebserverLogReader
   attr_accessor :collection
 
   def initialize(file)
