@@ -5,10 +5,10 @@ require_relative './page'
 
 class PageCollection
   extend Forwardable
-  def_delegators :@collection, :sort_by, :reverse
+  def_delegators :@collection, :sort_by, :reverse, :values
 
   def initialize
-    @collection = []
+    @collection = {}
   end
 
   def upsert_page(url, ip_addr)
@@ -25,10 +25,10 @@ class PageCollection
   private
 
   def find(url)
-    @collection.find { |v| v.url == url }
+    @collection[url]
   end
 
   def insert_page(url, ip_addr)
-    @collection << Page.new(url, ip_addr)
+    @collection[url] = Page.new(url, ip_addr)
   end
 end

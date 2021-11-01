@@ -19,6 +19,7 @@ class WebserverLogReader
 
   def sort_by(column = :views_count)
     @collection
+      .values
       .sort_by(&column)
       .reverse
   end
