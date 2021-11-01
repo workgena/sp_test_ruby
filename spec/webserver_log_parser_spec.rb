@@ -25,6 +25,6 @@ describe WebserverLogReader do
   it 'raise error when file content is invalid' do
     file = File.open('./spec/fixtures/invalid.log')
 
-    expect { described_class.new(file) }.to raise_error('Wrong format, expect webserver log')
+    expect { described_class.new(file) }.to raise_error(Error::InvalidInput, 'Wrong format, expect webserver log')
   end
 end

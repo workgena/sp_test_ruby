@@ -41,12 +41,14 @@ $ ruby parser.rb webserver.log
 
 ## TODOs
 
+- Check performance with bigger files, compare to HashMap data structure
 - Security: prevent reading files from other directories
 - GitHub Action for RSpec and Rubocpo
+- Wrap every class with module (e.g. `WebserverLogReader::`)
 
 ## Coverage snapshot
 
-![coverage_snapshot](./Screenshot_2021-10-31_at_17.56.47.png)
+![coverage_snapshot](./coverage_snapshot.png)
 
 - parser.rb
 - lib/formatter/cli_by_unique_views.rb
