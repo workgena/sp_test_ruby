@@ -1,6 +1,7 @@
 # sp_test_ruby
 
-Practice
+* main - implementation with Array data structure
+* [Pull Request #1](https://github.com/workgena/sp_test_ruby/pull/1) - implementation with Hash data structure
 
 ## How to run
 
@@ -35,7 +36,7 @@ $ ruby parser.rb webserver.log
 ## Explanations
 
 - I've chose `File.each_line` to reduce memory usage
-- Core Data Structure to store "pages" is Array. It's not efficient, and can be replaced with HashMap in the future. HashMap makes insertion faster, but require conversion to Array when sorting. This change should be easy.
+- Core Data Structure to store "pages" is Array. It's not efficient, and can be replaced with HashMap in the future. HashMap makes insertion faster, but require conversion to Array when sorting. This change should be easy - #1
 - Why sort_by() + reverse() - [performance is acceptable](https://stackoverflow.com/a/2651028), can be changed just to sort_by with a block
 - `printf "%-20s %-4s visits\n"` is not robust solution, but don't want to spend to match time on it
 
