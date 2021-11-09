@@ -10,7 +10,7 @@ describe PageCollection do
     it 'creates new Page-model with visits equal to 1(one)' do
       collection = subject.upsert_page('/home', '184.123.665.067')
 
-      expect(collection[0]).to have_attributes(
+      expect(collection['/home']).to have_attributes(
         url: '/home',
         ip_addresses: ['184.123.665.067'],
         views_count: 1,
@@ -24,7 +24,7 @@ describe PageCollection do
 
       expect(collection.count).to eq(1)
 
-      expect(collection[0]).to have_attributes(
+      expect(collection['/home']).to have_attributes(
         url: '/home',
         ip_addresses: ['192.168.1.1', '192.168.1.2'],
         views_count: 2,
@@ -38,7 +38,7 @@ describe PageCollection do
 
       expect(collection.count).to eq(1)
 
-      expect(collection[0]).to have_attributes(
+      expect(collection['/home']).to have_attributes(
         url: '/home',
         ip_addresses: ['192.168.1.1', '192.168.1.1'],
         views_count: 2,
